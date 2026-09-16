@@ -1,16 +1,21 @@
 import { Clapperboard } from 'lucide-react';
 
+import { FaInstagramSquare } from "@react-icons/all-files/fa/FaInstagramSquare";
+import { FaFacebookSquare } from "@react-icons/all-files/fa/FaFacebookSquare";
+import { FaTwitterSquare } from "@react-icons/all-files/fa/FaTwitterSquare";
+
+
 import React from 'react';
 
 const Footer = () => {
-    return (
-        <div>
-            <footer className="bg-[#09090d] border-t border-white/10 text-slate-400 pt-16 pb-12 z-20">
+  return (
+    <div>
+      <footer className="bg-[#09090d] border-t border-white/10 text-slate-400 pt-16 pb-12 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Main Footer Column Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
-            
+
             {/* Brand Information */}
             <div className="lg:col-span-2 space-y-4">
               <div className="flex items-center space-x-3">
@@ -27,14 +32,9 @@ const Footer = () => {
 
               {/* Social Icons */}
               <div className="flex items-center space-x-3 pt-2">
-                {["X", "IG", "YT", "DC"].map((platform) => (
-                  <button 
-                    key={platform}
-                    className="w-9 h-9 rounded-xl bg-[#15151e] hover:bg-[#E50914] text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 text-xs font-black border border-white/10 hover:border-red-500"
-                  >
-                    {platform}
-                  </button>
-                ))}
+                <FaTwitterSquare className="w-6 h-6" />
+                <FaFacebookSquare className="w-6 h-6" />
+                <FaInstagramSquare className="w-6 h-6" />
               </div>
             </div>
 
@@ -75,7 +75,7 @@ const Footer = () => {
 
           {/* Copyright Section */}
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-            <p>© {new Date().getFullYear()} CinePulse Movie Information Portal. All rights reserved.</p>
+            <p>© CinePulse Movie Information Portal. All rights reserved.</p>
             <div className="flex items-center space-x-6">
               <a href="#" className="hover:text-slate-400 transition">Privacy Policy</a>
               <a href="#" className="hover:text-slate-400 transition">Terms of Service</a>
@@ -85,8 +85,8 @@ const Footer = () => {
 
         </div>
       </footer>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Footer;

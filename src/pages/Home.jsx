@@ -3,7 +3,7 @@ import { ChevronRight, Play, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router';
 
 const Home = () => {
-  const navigate = useNavigate();
+  let navigate = useNavigate();
 
     return (
         <div>

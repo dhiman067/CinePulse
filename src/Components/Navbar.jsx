@@ -13,9 +13,9 @@ import {
 import { useNavigate } from 'react-router';
 
 const Navbar = () => {
-  const navigate = useNavigate()
+  let navigate = useNavigate()
 
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  let [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div>
