@@ -18,20 +18,22 @@ const MoviesInfos = ({PromiseMoviesInfos}) => {
                  <div className="w-full max-w-xl text-center mb-10 space-y-4 mt-10">
         <h1 className="text-3xl md:text-4xl font-black text-white tracking-tight flex items-center justify-center space-x-3">
           <Film className="w-8 h-8 text-[#E50914]" />
-          <span>Search Movies</span>
+          <span>Search Tv Shows</span>
         </h1>
 
         {/* Clean dark search input field */}
-        <div className="relative w-[50%] mx-auto lg:w-[full] lg:w-[100%]">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+        <div className="lg:ml-7 lg:flex lg:flex-row lg:items-center lg:justify-center flex flex-col gap-4 relative w-[50%] mx-auto  lg:w-[100%]">
+          
           <input
             type="text"
             // value={searchTerm}
             // onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search for a movie title..."
+            placeholder="Search for a shows..."
             className="w-full pl-12 pr-4 py-3.5 bg-[#12121a] text-white placeholder-slate-500 rounded-xl border border-white/10 focus:border-[#E50914] focus:ring-1 focus:ring-[#E50914] outline-none transition duration-200 text-sm"
           />
+          <button className=" btn border-0 mx-auto flex px-5 py-3 rounded-xl font-black bg-[#E50914] text-white shadow-lg shadow-[#E50914]/30 tracking-wider hover:bg-red-500">Search</button>
         </div>
+        
       </div>
             </div>
 
