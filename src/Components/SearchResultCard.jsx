@@ -1,43 +1,27 @@
-
 import React, { useState } from 'react';
-import {
-  Search,
-  Star,
-  LibraryBig,
-  Film,
-  Clapperboard,
-  CircleX,
+import { Calendar, Star,CircleX,
   Languages,
   MapPin,
   Radio,
-  Tags,
-  Dice1
-} from 'lucide-react';
+  Tags, } from 'lucide-react';
 
-
-const Movie = ({ movie,search,searchItems }) => {
-  let [modal, setModal] = useState(false)
-  let handleModal = () => {
-    setModal(true)
-  }
-
-
-  let summary = movie.summary?.replace(/<[^>]*>/g, '');
-
-
-
-  return (
-    <>
-    {!searchItems  &&  (
-      <div>
-        <div className="group w-full max-w-[400px] md:w-[300px] xl:max-w-[280px] bg-[#12121a] rounded-2xl border border-white/10 hover:border-[#E50914]/50 shadow-lg hover:shadow-[0_10px_30px_rgba(229,9,20,0.25)] transition-all duration-300 flex flex-col overflow-hidden">
+const SearchResultCard = ({movie}) => {
+    let [modal, setModal] = useState(false)
+    let summary = movie.show.summary?.replace(/<[^>]*>/g, '');
+      let handleModal = () => {
+        setModal(true)
+      }
+    return (
+        <>
+        <div>
+            <div className="group w-full max-w-[400px] md:w-[300px] xl:max-w-[280px] bg-[#12121a] rounded-2xl border border-white/10 hover:border-[#E50914]/50 shadow-lg hover:shadow-[0_10px_30px_rgba(229,9,20,0.25)] transition-all duration-300 flex flex-col overflow-hidden">
 
           {/* ===== TOP: POSTER ===== */}
           <div className="relative w-full aspect-[2/3] bg-[#1a1a26] overflow-hidden flex items-center justify-center">
 
             <img
-              src={movie.image.original}
-              alt={movie.name}
+              src={movie.show.image?.original}
+              alt={movie.show?.name}
 
               className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
             />
@@ -53,21 +37,21 @@ const Movie = ({ movie,search,searchItems }) => {
               {/* Movie Title */}
               <h3
                 className="text-base font-bold text-white group-hover:text-[#E50914] transition-colors line-clamp-1 leading-snug"
-                title={movie.name}
+                title={movie.show?.name}
               >
-                {movie.name}
+                {movie.show?.name}
               </h3>
 
               {/* Rating & Year */}
               <div className="flex items-center space-x-2 text-xs text-slate-300 font-semibold">
                 <div className="flex items-center space-x-1 text-amber-400">
                   <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  <span className="text-white font-bold">{movie.rating.average}</span>
+                  <span className="text-white font-bold">{movie.show.rating?.average}</span>
                 </div>
                 <span className="text-slate-600 font-bold">•</span>
                 <div className="flex items-center space-x-1 text-slate-400">
-                  <LibraryBig className="w-3.5 h-3.5 text-slate-400" />
-                  <span>{movie.genres?.join(', ')}</span>
+                  <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                  <span>{movie.show.genres?.join(', ')}</span>
                 </div>
               </div>
             </div>
@@ -82,22 +66,15 @@ const Movie = ({ movie,search,searchItems }) => {
             </button>
           </div>
         </div>
-      </div>
-    )
-    
-    }
-      
+        </div>
 
 
-
-
-      {/* modal section */}
-      {modal && (<div onClick={() => setModal(false)} className='fixed w-full h-full xl:h-full flex items-center justify-center z-10 bg-black/70 bottom-0 lg:top-0'>
+        {modal && (<div onClick={() => setModal(false)} className='fixed w-full h-full xl:h-full flex items-center justify-center z-10 bg-black/70 bottom-0 lg:top-0'>
         <div className='border border-[#E50914]/50 shadow-[0_10px_30px_rgba(229,9,20,0.25)] flex flex-col xl:flex-row items-center lg:items-start  xl:w-[50%]  gap-6 p-6 bg bg-black/70 lg:bg-[#0D0D12] rounded-3xl'>
-          <img className='object-contain lg:h-[500px] h-[300px] rounded-3xl' src={movie.image.original} alt="" />
+          <img className='object-contain lg:h-[500px] h-[300px] rounded-3xl' src={movie.show.image?.original} alt="" />
 
           <div>
-            <h1 className='text-2xl font-bold text-amber-50'>{movie.name}</h1>
+            <h1 className='text-2xl font-bold text-amber-50'>{movie.show.name}</h1>
             <p className='text-slate-600 mt-2'>Sypnosis</p>
             <p className='text-slate-500'>{summary}</p>
             <div className='mt-5 grid gap-3 grid-cols-2'>
@@ -105,42 +82,42 @@ const Movie = ({ movie,search,searchItems }) => {
                 <Tags className='h-5 w-5 text-red-500' />
                 <div>
                   <p className='text-xs uppercase tracking-wider text-slate-500'>Genres</p>
-                  <p className='text-sm text-slate-200'>{movie.genres?.join(', ')}</p>
+                  <p className='text-sm text-slate-200'>{movie.show.genres?.join(', ')}</p>
                 </div>
               </div>
               <div className='flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3'>
                 <Languages className='h-5 w-5 text-red-500' />
                 <div>
                   <p className='text-xs uppercase tracking-wider text-slate-500'>Language</p>
-                  <p className='text-sm text-slate-200'>{movie.language}</p>
+                  <p className='text-sm text-slate-200'>{movie.show.language}</p>
                 </div>
               </div>
               <div className='flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3'>
                 <MapPin className='h-5 w-5 text-red-500' />
                 <div>
                   <p className='text-xs uppercase tracking-wider text-slate-500'>Country</p>
-                  <p className='text-sm text-slate-200'>{movie.network?.country?.name}</p>
+                  <p className='text-sm text-slate-200'>{movie.show.network?.country?.name}</p>
                 </div>
               </div>
               <div className='flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3'>
                 <Star className='h-5 w-5 fill-amber-400 text-amber-400' />
                 <div>
                   <p className='text-xs uppercase tracking-wider text-slate-500'>Rating</p>
-                  <p className='text-sm text-slate-200'>{movie.rating?.average}</p>
+                  <p className='text-sm text-slate-200'>{movie.show.rating?.average}</p>
                 </div>
               </div>
               <div className='flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3'>
                 <Radio className='h-5 w-5 text-red-500' />
                 <div>
                   <p className='text-xs uppercase tracking-wider text-slate-500'>Network</p>
-                  <p className='text-sm text-slate-200'>{movie.network?.name}</p>
+                  <p className='text-sm text-slate-200'>{movie.show.network?.name}</p>
                 </div>
               </div>
               <div className='flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3'>
                 <Radio className='h-5 w-5 text-red-500' />
                 <div>
                   <p className='text-xs uppercase tracking-wider text-slate-500'>Web</p>
-                  <p className='text-sm text-slate-200'>{movie.webChannel?.name}</p>
+                  <p className='text-sm text-slate-200'>{movie.show.webChannel?.name}</p>
                 </div>
               </div>
             </div>
@@ -162,12 +139,8 @@ const Movie = ({ movie,search,searchItems }) => {
       </div>
 
       )}
-
-    </>
-  );
+        </>
+    );
 };
 
-export default Movie;
-
-
-
+export default SearchResultCard;

@@ -10,7 +10,10 @@ const Movies = () => {
     }
     return (
         <div>
-           <Suspense fallback={<h1>Loading data.....</h1>}>
+           <Suspense fallback={<div className="bg-black h-[500px] flex items-center justify-center">
+            <span className="loading loading-bars loading-xl text-white mr-2"> </span>
+            <h1 className="text-white text-4xl">Loading....</h1>
+           </div>}>
                 <MoviesInfos PromiseMoviesInfos ={PromiseMoviesInfos()}></MoviesInfos>
            </Suspense>
         </div>

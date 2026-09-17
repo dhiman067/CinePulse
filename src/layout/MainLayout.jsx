@@ -11,7 +11,7 @@ const MainLayout = () => {
             <div>
               <Navbar></Navbar>
             </div>
-            <div>
+            <div className="pt-20">
                 <Outlet></Outlet>
             </div>
             <div>
