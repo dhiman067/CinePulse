@@ -13,7 +13,7 @@ const Home = () => {
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-1000 opacity-60 filter contrast-110 saturate-125"
           style={{ 
-            backgroundImage: "url('/moviefone-best-tv-21-century-100.jpg')" 
+            backgroundImage: "url('/moviefone- (1).jpg')" 
           }}
         />
 
