@@ -40,7 +40,7 @@ const MoviesInfos = ({PromiseMoviesInfos}) => {
 
 
             <div className="lg:gird lg:grid-cols-3 md:grid md:grid-cols-2 xl:grid xl:grid-cols-5 gap-7  flex flex-col items-center  justify-items-center
-            xl:w-[1500px] mx-auto">
+            xl:w-[1500px] mx-auto pb-4">
 
             {
                 movies.map(movie => <Movie key={movie.id} movie={movie}></Movie>)

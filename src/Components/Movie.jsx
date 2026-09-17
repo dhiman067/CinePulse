@@ -6,7 +6,11 @@ import {
   Calendar,
   Film,
   Clapperboard,
-  CircleX
+  CircleX,
+  Languages,
+  MapPin,
+  Radio,
+  Tags
 } from 'lucide-react';
 
 
@@ -65,15 +69,6 @@ const Movie = ({ movie }) => {
                 </div>
               </div>
             </div>
-
-            {/* <div className='bg-white w-[400px] h-[400px]'>
-
-            {modal && <div>
-              <h1>this is modal</h1>
-            </div>}
-          </div> */}
-
-            {/* [ See Details ] Button */}
             <button
               onClick={handleModal}
               //   onClick={() => onSeeDetails && onSeeDetails(movie)}
@@ -89,56 +84,78 @@ const Movie = ({ movie }) => {
 
 
 
-      
 
-        {modal && (<div className='fixed w-full h-[500px]  xl:h-full flex items-center justify-center z-10 border-4 bg-black/70 top-60 lg:top-0'>
-          <div className='flex flex-col xl:flex-row  xl:w-[50%]  gap-6 p-6 bg bg-black/70 lg:bg-[#0D0D12] rounded-3xl'>
-            <img className='xl:h-[500px] h-[300px] rounded-3xl' src={movie.image.original} alt="" />
-             
-            <div>
-              <h1 className='text-2xl font-bold text-amber-50'>{movie.name}</h1>
-              <p className='text-slate-600 mt-2'>Sypnosis</p>
-              <p className='text-white'>{summary}</p>
-             
+      {/* modal section */}
+      {modal && (<div onClick={() => setModal(false)} className='fixed w-full h-full xl:h-full flex items-center justify-center z-10 bg-black/70 bottom-0 lg:top-0'>
+        <div className='border border-[#E50914]/50 shadow-[0_10px_30px_rgba(229,9,20,0.25)] flex flex-col xl:flex-row items-center lg:items-start  xl:w-[50%]  gap-6 p-6 bg bg-black/70 lg:bg-[#0D0D12] rounded-3xl'>
+          <img className='object-contain lg:h-[500px] h-[300px] rounded-3xl' src={movie.image.original} alt="" />
+
+          <div>
+            <h1 className='text-2xl font-bold text-amber-50'>{movie.name}</h1>
+            <p className='text-slate-600 mt-2'>Sypnosis</p>
+            <p className='text-slate-500'>{summary}</p>
+            <div className='mt-5 grid gap-3 grid-cols-2'>
+              <div className='flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3'>
+                <Tags className='h-5 w-5 text-red-500' />
+                <div>
+                  <p className='text-xs uppercase tracking-wider text-slate-500'>Genres</p>
+                  <p className='text-sm text-slate-200'>{movie.genres?.join(', ')}</p>
+                </div>
+              </div>
+              <div className='flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3'>
+                <Languages className='h-5 w-5 text-red-500' />
+                <div>
+                  <p className='text-xs uppercase tracking-wider text-slate-500'>Language</p>
+                  <p className='text-sm text-slate-200'>{movie.language}</p>
+                </div>
+              </div>
+              <div className='flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3'>
+                <MapPin className='h-5 w-5 text-red-500' />
+                <div>
+                  <p className='text-xs uppercase tracking-wider text-slate-500'>Country</p>
+                  <p className='text-sm text-slate-200'>{movie.network?.country?.name}</p>
+                </div>
+              </div>
+              <div className='flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3'>
+                <Star className='h-5 w-5 fill-amber-400 text-amber-400' />
+                <div>
+                  <p className='text-xs uppercase tracking-wider text-slate-500'>Rating</p>
+                  <p className='text-sm text-slate-200'>{movie.rating?.average}</p>
+                </div>
+              </div>
+              <div className='flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3'>
+                <Radio className='h-5 w-5 text-red-500' />
+                <div>
+                  <p className='text-xs uppercase tracking-wider text-slate-500'>Network</p>
+                  <p className='text-sm text-slate-200'>{movie.network?.name}</p>
+                </div>
+              </div>
+              <div className='flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3'>
+                <Radio className='h-5 w-5 text-red-500' />
+                <div>
+                  <p className='text-xs uppercase tracking-wider text-slate-500'>Web</p>
+                  <p className='text-sm text-slate-200'>{movie.webChannel?.name}</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <button
-              onClick={()=>setModal(false)}
-              type='button'
-              aria-label='Close movie details'
-              className='text-2xl font-bold text-gray-500 hover:text-gray-600'
 
-            >
-            <CircleX />
-            </button>
-             </div>
           </div>
-
-        </div>
-      
-      )}
-
-        {/* {modal && (
-        <div className='fixed inset-0 z-50 flex items-center justify-center  p-4'>
-          <div className='relative flex max-h-[90vh] w-full max-w-3xl gap-6 overflow-y-auto rounded-2xl bg-white p-6 text-black'>
+          <div>
             <button
-              type='button'
               onClick={() => setModal(false)}
+
               aria-label='Close movie details'
-              className='absolute right-4 top-3 text-2xl font-bold text-gray-500 hover:text-black'
+              className='text-2xl font-bold text-gray-500 hover:text-gray-600 '
+
             >
-              x
+              <CircleX className='text-red-500 hover:text-red-400' />
             </button>
-            <img className='h-[320px] w-auto rounded-lg object-cover' src={movie.image.original} alt={movie.name} />
-            <div className='pr-8'>
-              <h1 className='text-2xl font-bold'>{movie.name}</h1>
-              <p className='mt-4'>{summary}</p>
-            </div>
           </div>
         </div>
-      )} */}
-     
 
+      </div>
+
+      )}
     </>
   );
 };
