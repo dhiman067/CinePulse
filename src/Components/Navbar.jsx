@@ -26,12 +26,12 @@ const Navbar = () => {
             {/* Left Side: Site Logo and Brand Name */}
             <div
               className="flex items-center space-x-3.5 cursor-pointer group"
-              onClick={() => setActiveTab("Home")}
+              
             >
               <div className="relative flex items-center justify-center">
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#E50914] to-red-600 rounded-2xl blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
                 <div className="relative w-11 h-11 rounded-xl bg-[#14141d] border border-red-500/40 flex items-center justify-center shadow-2xl">
-                  <Clapperboard className="w-6 h-6 text-[#E50914] group-hover:scale-110 transition-transform duration-300" />
+                  <Clapperboard onClick={() => navigate("/")} className="w-6 h-6 text-[#E50914] group-hover:scale-110 transition-transform duration-300" />
                 </div>
               </div>
               <div className="flex flex-col">

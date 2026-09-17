@@ -22,23 +22,36 @@ const MoviesInfos = ({ PromiseMoviesInfos }) => {
   return (
     <div className="bg-[#0D0D12]">
       <div className="flex flex-col items-center">
-        <div className="w-full max-w-xl text-center mb-10 space-y-4 mt-10">
-          <h1 className="text-3xl md:text-4xl font-black text-white tracking-tight flex items-center justify-center space-x-3">
-            <Film className="w-8 h-8 text-[#E50914]" />
-            <span>Search Tv Shows...</span>
-          </h1>
+        <div className="w-full max-w-7xl px-4 mb-12 mt-10">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-7 rounded-2xl border border-white/10 bg-[#111118] px-5 py-6 sm:px-7 shadow-2xl shadow-black/20">
+            <div className="flex items-start gap-4">
+              <div className="hidden sm:flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#E50914]/10 border border-[#E50914]/30">
+                <Film className="w-6 h-6 text-[#E50914]" />
+              </div>
+              <div>
+                <p className="mb-1 text-xs font-bold uppercase tracking-[0.25em] text-[#E50914]">Explore the collection</p>
+                <h1 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+                  Search TV Shows
+                </h1>
+                <p className="mt-2 text-sm text-slate-400">Find your next favorite story.</p>
+              </div>
+            </div>
 
-          {/* Clean dark search input field */}
-          <div className="lg:ml-7 lg:flex lg:flex-row lg:items-center lg:justify-center flex flex-col gap-4 relative w-[50%] mx-auto  lg:w-[100%]">
-
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search for a shows..."
-              className="w-full pl-12 pr-4 py-3.5 bg-[#12121a] text-white placeholder-slate-500 rounded-xl border border-white/10 focus:border-[#E50914] focus:ring-1 focus:ring-[#E50914] outline-none transition duration-200 text-sm"
-            />
-            <button onClick={search.length > 0 ? handleSearchInput : undefined} className=" btn border-0 mx-auto flex px-5 py-3 rounded-xl font-black bg-[#E50914] text-white shadow-lg shadow-[#E50914]/30 tracking-wider hover:bg-red-500">Search</button>
+            <div className="flex w-full flex-col sm:flex-row items-stretch sm:items-center gap-2 rounded-xl border border-white/10 bg-[#0D0D12] p-2 lg:w-auto">
+              <div className="relative w-full sm:w-72">
+                <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+                <input
+                  type="text"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search TV shows..."
+                  className="w-full rounded-lg bg-transparent py-2.5 pl-10 pr-3 text-sm text-white placeholder-slate-500 outline-none focus:ring-1 focus:ring-[#E50914]"
+                />
+              </div>
+              <button onClick={search.length > 0 ? handleSearchInput : undefined} className="btn min-h-0 border-0 px-5 py-2.5 rounded-lg font-black bg-[#E50914] text-white shadow-lg shadow-[#E50914]/20 tracking-wider hover:bg-red-500">
+                Search
+              </button>
+            </div>
           </div>
 
         </div>
@@ -48,7 +61,7 @@ const MoviesInfos = ({ PromiseMoviesInfos }) => {
 
 
       <div className="lg:gird lg:grid-cols-3 md:grid md:grid-cols-2 xl:grid xl:grid-cols-5 gap-7  flex flex-col items-center  justify-items-center
-            xl:w-[1500px] mx-auto pb-4">
+            xl:w-[1500px] mx-auto pb-16">
 
         {
           movies.map(movie => <Movie search={search} searchItems={searchItems} key={movie.id} movie={movie}></Movie>)

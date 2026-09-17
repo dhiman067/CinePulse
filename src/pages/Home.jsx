@@ -11,24 +11,16 @@ const Home = () => {
         
         {/* High-Resolution Poster Collage Background */}
         <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-1000 opacity-40 mix-blend-luminosity filter contrast-125 saturate-150"
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-1000 opacity-60 filter contrast-110 saturate-125"
           style={{ 
-            backgroundImage: `url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1920&q=80')` 
+            backgroundImage: "url('/moviefone-best-tv-21-century-100.jpg')" 
           }}
         />
 
-        {/* Secondary Detailed Dark Movie Wall Visual Overlay */}
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center opacity-30 mix-blend-overlay"
-          style={{ 
-            backgroundImage: `url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1920&q=80')` 
-          }}
-        />
-
-        {/* Gradient Overlays: Deep Pitch Black Radial & Linear Gradient Vignettes */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#0D0D12] via-[#0D0D12]/75 to-[#0D0D12]/80" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#0D0D12] via-transparent to-[#0D0D12]" />
-        <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#0D0D12]/60 to-[#0D0D12]" />
+        {/* Focused overlays keep the image visible while protecting the text contrast. */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#0D0D12] via-[#0D0D12]/50 to-[#0D0D12]/10" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#0D0D12]/85 via-transparent to-[#0D0D12]/35" />
+        <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_center,_transparent_15%,_rgba(13,13,18,0.3)_55%,_rgba(13,13,18,0.75)_100%)]" />
 
         {/* Center Content Column Layout */}
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center py-20">
@@ -50,7 +42,7 @@ const Home = () => {
           </h1>
 
           {/* Description */}
-          <p className="text-base sm:text-xl text-slate-300 max-w-2xl font-normal leading-relaxed mb-10 drop-shadow-md">
+          <p className="text-base text- sm:text-xl text-white max-w-2xl font-normal leading-relaxed mb-10 drop-shadow-md">
             Explore thousands of blockbuster movies, hidden indie gems, cast insights, and top-rated classics all in one high-octane cinematic hub.
           </p>
 

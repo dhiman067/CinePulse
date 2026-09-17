@@ -9,7 +9,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div>
+    <div className='mb-[-30px]'>
       <footer className="bg-[#09090d] border-t border-white/10 text-slate-400 pt-16 pb-12 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
