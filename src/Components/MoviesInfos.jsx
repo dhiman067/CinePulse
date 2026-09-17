@@ -25,7 +25,7 @@ const MoviesInfos = ({ PromiseMoviesInfos }) => {
         <div className="w-full max-w-xl text-center mb-10 space-y-4 mt-10">
           <h1 className="text-3xl md:text-4xl font-black text-white tracking-tight flex items-center justify-center space-x-3">
             <Film className="w-8 h-8 text-[#E50914]" />
-            <span>Search Tv Shows</span>
+            <span>Search Tv Shows...</span>
           </h1>
 
           {/* Clean dark search input field */}
