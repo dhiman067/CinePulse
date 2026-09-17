@@ -7,7 +7,7 @@ const Home = () => {
 
     return (
         <div>
-                  <section className="relative w-full flex-1 min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#0D0D12]">
+                  <section className="relative w-full flex-1 min-h-[85vh] flex items-center justify-center overflow-hidden ">
         
         {/* High-Resolution Poster Collage Background */}
         <div 
